@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Joe's Hotdogs</title>
+    <style type="text/css"> 
+                
+        body{
+            font-size: 12pt;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+    </style>
+
+<script language="javascript">
+	
+	function calc()
+	{
+		h = document.getElementById("hotdog").value;
+		f = document.getElementById("frenchfry").value;
+		d = document.getElementById("drink").value;
+
+		//s = n + " + 3 is " + (parseInt(n)+ 3) + "\n";
+		s = (parseInt(h)* 3.75) + (parseInt(f)* 2.00) + (parseInt(d)* 1.50);
+		s = Math.round(100*s)/100;
+
+        o = s;
+
+        if(o >= 20)
+        {
+            o = o - (o * 0.1);
+            e = Math.round(100*(o * 0.1))/100;
+        }
+
+        o = o + (o * 0.065);
+        t = Math.round(100*(o * 0.065))/100;
+        o = Math.round(100*o)/100;
+
+        m = "You ordered: " + parseInt(h) + " hotdogs, " + parseInt(f) + " containers of french fries, " + parseInt(d) + " drinks." + "<br>" ;
+        m += "You recieved a discount of: $" + e + "<br>";
+        m += "Tax: $" + t + "<br>";
+		m += "Your subtotal is: $" + s + "<br>";
+		m += "Your total is: $" + o  + "<br>";
+  
+		document.write(m);
+	}
+	
+
+	
+</script>
+</head>
+
+<body>
+	<form>
+	Please input the quantities of food items you would like!<br><br>
+	Hotdogs : <input type="text" name="hotdog" id="hotdog"><br><br>
+	French Fries (Containers) : <input type="text" name="frenchfry" id="frenchfry"><br><br>
+	Drinks: <input type="text" name="drink" id="drink"><br><br>
+	<input type="button" value="Calculate"
+		   id="btn1" onclick = "calc()">
+	</form>
+</body>
+</html>
